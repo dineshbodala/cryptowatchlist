@@ -1,0 +1,11 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    {% csrf_token %} 
+    <meta charset="UTF-8">  
+    <title>Index</title>  
+</head>  
+<body>
+    <h1>{{total}}</h1>
+</body>
+<a href="{% url 'add' %}">Add Coin</a>
