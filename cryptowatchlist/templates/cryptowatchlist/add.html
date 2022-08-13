@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html>
 <body>
-
 <h2>Choose A coin you would like to add to the Watchlist</h2>
-
-
-<form action="{% url 'add' %">
-  <label for="cars">Choose a coin:</label>
-  <select id="coin" name="coin">
-    <option value="BTC/USDT">Bitcoin</option>
-    <option value="ETH/USDT">Etherium</option>
-    <option value="ADA/USDT">Cardano</option>
-    <option value="SOL/USDT">Solana</option>
-  </select>
-  <input type="submit">
+<form action="{% url 'add' %}" method="post">
+  {% csrf_token %}
+<select id="coin" name="coin">
+<option value="BTC/USDT">Bitcoin</option>
+<option value="ETH/USDT">Etherium</option>
+<option value="ADA/USDT">Cardano</option>
+<option value="SOL/USDT">Solana</option>
+</select>
+<input type="submit">
 </form>
-
 </body>
 </html>
