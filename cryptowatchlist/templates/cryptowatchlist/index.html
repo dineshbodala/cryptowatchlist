@@ -4,31 +4,40 @@
     {% csrf_token %} 
     <meta charset="UTF-8">  
     <title>Index</title>  
-</head>  
-<body>
-    <div class="row">                                                                                                      
-        <div class="col-md">
-            <div class="card card-body">
-                <table class="table table-sm">
-                    <tr>
-                        <th>Coin</th>
-                        <th>Added Time</th>
-                    </tr>
-                    {% for i in coins %}
-                    <tr>
-                        <td>{{ i.crypto_name }}</td>
-                        <td>{{ i.added_time }}</td>
 
-                    </tr>
-                    {% endfor %}
-                </table>
-            </div>
-        </div>
-    </div>
-    <th>Total</th>
-    {% for i in y %} 
-    {{i}}
-    {% endfor %}
+</head>
+<style>
+	table, th, td {
+	  border:20px solid blue;
+	}
+</style>
+<body>
+<div class="row">
+	<div class="col-md-5">
+		<hr>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th><h1>Coin</h1></th>
+					<th><h1>Added Time</h1></th>
+					<th><h1>Total</h1></th>
+				</tr>
+				
+				{% for i in coins %}{% for z in y %}
+    			{% if forloop.counter == forloop.parentloop.counter %}
+					<tr>
+					<td>{{ i.crypto_name }}</td>
+					<td>{{ i.added_time }}</td>
+					<td>{{ z }}</td>
+					</tr>
+				{% endif %}
+				{% endfor %}{% endfor %}
+	
+			</table>
+		</div>
+	</div>
+
+
    
 </body><br>
 <a href="{% url 'add' %}">Add Coin</a>
